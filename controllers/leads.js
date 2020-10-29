@@ -1,4 +1,5 @@
 const fse = require('fs-extra')
+const TCtrl = require('./text')
 
 exports.getLeads = async function (req, res) {
   var file = await fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json')
@@ -9,7 +10,8 @@ exports.getLeads = async function (req, res) {
 exports.geSingleLead = async function (req, res){
   var file = await fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json')
   delete file[req.params.id].createdAtUS
-  res.render('viewLead', {lead: file[req.params.id], title: 'DPLYR CRM'})
+  var texts = TCtrl.map((e)=> e(file[req.params.id]))
+  res.render('viewLead', {lead: file[req.params.id], title: 'DPLYR CRM', texts: texts})
 }
 
 exports.addLead = async function (req, res) {
