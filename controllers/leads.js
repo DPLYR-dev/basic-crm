@@ -30,7 +30,7 @@ exports.addLead = async function (req, res) {
   fse.writeJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json', file)
 
 
-  return res.render('added', { text: "Hello " + JSON.stringify(req.body) })
+  return res.render('viewLead', { lead: data, title: 'DPLYR CRM'})
 }
 
 exports.deleteLead = async function (req, res) {
