@@ -8,11 +8,7 @@
 <b>{{value}}</b>
 <b>---</b>
 {{/eachProperty}}
-  <textarea name="h1" id="" cols="30" rows="10"></textarea>
-  <textarea name="h2" id="" cols="30" rows="10"></textarea>
-  <textarea name="1f" id="" cols="30" rows="10"></textarea>
-  <textarea name="2f" id="" cols="30" rows="10"></textarea>
-  <textarea name="3f" id="" cols="30" rows="10"></textarea>
-  <textarea name="4f" id="" cols="30" rows="10"></textarea>
-  <textarea name="5f" id="" cols="30" rows="10"></textarea>
+{{#each texts}}
+  <textarea name="h1" id="" cols="30" rows="10">{{this}}</textarea>
+{{/each}}
 </center>
