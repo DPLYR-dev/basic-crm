@@ -26,7 +26,7 @@ Run the project
 
 You can config this project with the `config.json` file
 
-To add a new text add an object with the `texts` array to replace speciefic areas of the text with the lead's info ro with your info use our tag mergers
+To add a new text add an object with the `texts` array to replace speciefic areas of the text with the lead's info or with your info use our tag mergers
 
 ```javascript
 ${lead.name} 
