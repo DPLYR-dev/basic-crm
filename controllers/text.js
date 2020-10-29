@@ -1,8 +1,8 @@
 const fse = require('fs-extra')
-
+const path = require('path')
 
 var renderTexts = function (lead) {
-  var file = fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/config.json');
+  var file = fse.readJSONSync(path.join(__dirname, '..', 'config.json'));
   var edTexts = []
   String.prototype.replaceAll = function (str1, str2, ignore) {
     return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);

@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var LCtrl = require('../controllers/leads')
 const fse = require('fs-extra')
+const path = require('path')
 
-
-var config = fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/config.json');
+var config = fse.readJSONSync(path.join(__dirname, '..', 'config.json'));
 
 /* GET home page. */
 router.get('/', function (req, res, next) {

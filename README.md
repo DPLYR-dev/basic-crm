@@ -1,6 +1,10 @@
 ## Really Basic CRM
 
-#### A crm that is developed for entreprenurs 
+#### A crm that is developed for entreprenurs who need a basic CRM with text replacment feature
+
+### Story Behind this Repo
+
+I work as a startup's co-founder, and I send a lot of messages in LinkedIn and I've this text that I've to 
 
 
 ### Install and Run
