@@ -1,0 +1,12 @@
+{
+  "texts": [
+    {
+      "name": "Hello1",
+      "text": "Hello ${lead.name}, \n Hope you are staying safe, I was wondering what are you using in ${lead.company} as your cloud provider? \n We have helped companies just like ${lead.company} reduce costs, be more flexible and iterate fast and I think we can help you too."
+    }
+  ],
+  "companyName":"DPLYR",
+  "appName":"DPLYR CRM",
+  "senderName":"Ahmed M. Gamal",
+  "calendlyLink":"https://calendly.com/ahmed-gamal/lets-meet"
+}
