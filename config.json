@@ -3,10 +3,17 @@
     {
       "name": "Hello1",
       "text": "Hello ${lead.name}, \n Hope you are staying safe, I was wondering what are you using in ${lead.company} as your cloud provider? \n We have helped companies just like ${lead.company} reduce costs, be more flexible and iterate fast and I think we can help you too."
+    },
+    {
+      "name": "Demo",
+      "text": "${lead.name} \n ${lead.company} \n ${lead.phone} \n ${lead.email} \n ${company.name} \n ${company.url} \n ${company.senderName} \n ${company.senderEmail} \n ${company.senderPhone} \n ${company.calendly}"
     }
   ],
   "companyName":"DPLYR",
+  "companyURL":"https://www.dplyr.dev",
   "appName":"DPLYR CRM",
   "senderName":"Ahmed M. Gamal",
+  "senderEmail":"a.gamal@dplyr.dev",
+  "senderPhone":"+201033634122",
   "calendlyLink":"https://calendly.com/ahmed-gamal/lets-meet"
 }

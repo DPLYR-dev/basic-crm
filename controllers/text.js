@@ -1,15 +1,29 @@
-var hello1 = function (lead){
+const fse = require('fs-extra')
 
-  return `
-  Hello ${lead.name}, 
-  Hope you are staying safe, I was wondering what are you using in ${lead.company} as your cloud provider?
-  We have helped companies just like ${lead.company} reduce costs, be more flexible and iterate fast and I think we can help you too.
-  
-  
-  `;
+
+var renderTexts = function (lead) {
+  var file = fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/config.json');
+  var edTexts = []
+  String.prototype.replaceAll = function (str1, str2, ignore) {
+    return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);
+  }
+  file.texts.forEach(el => {
+    edTexts.push(el.text
+      .replaceAll("${lead.name}", lead.name)
+      .replaceAll("${lead.company}", lead.company)
+      .replaceAll("${lead.phone}", lead.phone)
+      .replaceAll("${lead.email}", lead.email)
+      .replaceAll("${company.name}", file.companyName)
+      .replaceAll("${company.url}", file.companyURL)
+      .replaceAll("${company.senderName}", file.senderName)
+      .replaceAll("${company.senderPhone}", file.senderPhone)
+      .replaceAll("${company.senderEmail}", file.senderEmail)
+      .replaceAll("${company.calendly}", file.calendlyLink));
+  });
+  return edTexts;
 }
 
 
 
 
-module.exports = [hello1]
+module.exports = renderTexts;

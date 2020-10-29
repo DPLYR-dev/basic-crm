@@ -10,7 +10,8 @@ exports.getLeads = async function (req, res) {
 exports.geSingleLead = async function (req, res){
   var file = await fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json');
   delete file[req.params.id].createdAtUS;
-  var texts = TCtrl.map((e)=> e(file[req.params.id]));
+  var texts = TCtrl(file[req.params.id]);
+  console.log(texts)
   res.render('viewLead', {lead: file[req.params.id], title: 'DPLYR CRM', texts: texts});
 }
 
