@@ -1,37 +1,43 @@
-## Welcome to GitHub Pages
+## Really Basic CRM
 
-You can use the [editor on GitHub](https://github.com/DPLYR-dev/basic-crm/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+#### A crm that is developed for entreprenurs who need a basic CRM with text replacment feature
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Story Behind this Repo
 
-### Markdown
+I work as a startup's co-founder, and I send a lot of messages in LinkedIn and I've this text that I have to replace some areas in it, also sometimes I forget to send followups. But available CRMs are too complex for my use case. And I couldn't find anything like I want so I decided to just a create a new one. And Here it's
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+### Install and Run
 
-# Header 1
-## Header 2
-### Header 3
+Git Clone this repo
+`git clone https://github.com/DPLYR-dev/basic-crm/`
 
-- Bulleted
-- List
+Install dependencies 
+With NPM `npm i` or Yarn `yarn`
 
-1. Numbered
-2. List
+Run the project
+`npm start`
 
-**Bold** and _Italic_ and `Code` text
+### Deployment
 
-[Link](url) and ![Image](src)
+#### You can use [DPLYR](https://www.dplyr.dev) to deploy this project in less than 5 minutes
+
+### Config
+
+You can config this project with the `config.json` file
+
+To add a new text add an object with the `texts` array to replace speciefic areas of the text with the lead's info or with your info use our tag mergers
+
+```javascript
+${lead.name} 
+${lead.company}
+${lead.phone} 
+${lead.email} 
+${company.name} 
+${company.url} 
+${company.senderName} 
+${company.senderEmail} 
+${company.senderPhone} 
+${company.calendly}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/DPLYR-dev/basic-crm/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
