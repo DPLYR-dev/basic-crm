@@ -6,7 +6,7 @@ var hello1 = function (lead){
   We have helped companies just like ${lead.company} reduce costs, be more flexible and iterate fast and I think we can help you too.
   
   
-  `
+  `;
 }
 
 
