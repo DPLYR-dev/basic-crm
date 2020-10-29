@@ -11,6 +11,7 @@
         {{#eachProperty this}}
         <td>{{value}}</td>
         {{/eachProperty}}
+        <td> <a href="/leads/{{this.id}}">View</a></td>
         <td> <a href="/leads/delete/{{this.id}}">Delete</a></td>
       </tr>
       {{/each}}
