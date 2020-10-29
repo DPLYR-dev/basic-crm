@@ -6,7 +6,13 @@ var LCtrl = require('../controllers/leads')
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'DPLYR CRM' });
 });
+
 router.get('/leads', LCtrl.getLeads);
-router.post('/leads/add', LCtrl.addLead)
-router.get('/leads/delete/:id', LCtrl.deleteLead)
+
+router.post('/leads/add', LCtrl.addLead);
+
+router.get('/leads/delete/:id', LCtrl.deleteLead);
+
+router.get("/leads/:id", LCtrl.geSingleLead)
+
 module.exports = router;

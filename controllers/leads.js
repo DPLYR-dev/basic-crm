@@ -6,6 +6,10 @@ exports.getLeads = async function (req, res) {
   res.render('all', { title: 'DPLYR CRM', data: file });
 }
 
+exports.geSingleLead = async function (req, res){
+  
+}
+
 exports.addLead = async function (req, res) {
   console.log(req.body)
   var data = req.body;
