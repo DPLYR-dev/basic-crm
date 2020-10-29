@@ -6,13 +6,22 @@
 
   <div>
     <table>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Company</th>
+        <th>Email</th>
+        <th>LinkedIn URL</th>
+        <th>Last Contact</th>
+        <th>ID</th>
+      </tr>
       {{#each data}}
       <tr>
         {{#eachProperty this}}
         <td>{{value}}</td>
         {{/eachProperty}}
         <td> <a href="/leads/{{this.id}}">View</a></td>
-        <td> <a href="/leads/updateDate/{{this.id}}">Update Date</a></td>
+        <td> <a href="/leads/updateDate/{{this.id}}">Update Last Contact</a></td>
         <td> <a href="/leads/delete/{{this.id}}">Delete</a></td>
       </tr>
       {{/each}}
