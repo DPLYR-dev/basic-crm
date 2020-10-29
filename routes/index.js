@@ -17,6 +17,8 @@ router.post('/leads/add', LCtrl.addLead);
 
 router.get('/leads/delete/:id', LCtrl.deleteLead);
 
+router.get('/leads/updateDate/:id', LCtrl.updateLeadDate);
+
 router.get("/leads/:id", LCtrl.geSingleLead)
 
 module.exports = router;

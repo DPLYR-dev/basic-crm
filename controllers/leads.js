@@ -42,5 +42,13 @@ exports.deleteLead = async function (req, res) {
   var file = await fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json');
   file.splice(req.params.id, 1);
   fse.writeJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json', file);
-  res.render('all', { title: config.appName, data: file });
+  res.redirect('/leads')
+}
+
+exports.updateLeadDate = async function (req, res) {
+  var file = await fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json');
+  file[req.params.id].createdAt = Date()
+  file[req.params.id].createdAtUS= Date.now()
+  fse.writeJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json', file);
+  res.redirect('/leads')
 }
