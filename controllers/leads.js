@@ -1,5 +1,10 @@
 const fse = require('fs-extra')
 
+exports.getLeads = async function (req, res) {
+  var file = await fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json')
+  file.forEach(function (v) { delete v.createdAtUS; });
+  res.render('all', { title: 'DPLYR CRM', data: file });
+}
 
 exports.addLead = async function (req, res) {
   console.log(req.body)
