@@ -1,10 +1,12 @@
 const fse = require('fs-extra')
 const TCtrl = require('./text')
 
+var config = fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/config.json');
+
 exports.getLeads = async function (req, res) {
   var file = await fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json');
   file.forEach(function (v) { delete v.createdAtUS; });
-  res.render('all', { title: 'DPLYR CRM', data: file });
+  res.render('all', { title: config.appName, data: file });
 }
 
 exports.geSingleLead = async function (req, res){
@@ -12,7 +14,7 @@ exports.geSingleLead = async function (req, res){
   delete file[req.params.id].createdAtUS;
   var texts = TCtrl(file[req.params.id]);
   console.log(texts)
-  res.render('viewLead', {lead: file[req.params.id], title: 'DPLYR CRM', texts: texts});
+  res.render('viewLead', {lead: file[req.params.id], title: config.appName, texts: texts});
 }
 
 exports.addLead = async function (req, res) {
@@ -33,12 +35,12 @@ exports.addLead = async function (req, res) {
   fse.writeJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json', file);
 
 
-  return res.render('viewLead', { lead: data, title: 'DPLYR CRM'});
+  return res.render('viewLead', { lead: data, title: config.appName});
 }
 
 exports.deleteLead = async function (req, res) {
   var file = await fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json');
   file.splice(req.params.id, 1);
   fse.writeJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json', file);
-  res.render('all', { title: 'DPLYR CRM', data: file });
+  res.render('all', { title: config.appName, data: file });
 }
