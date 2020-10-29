@@ -1,2 +1,28 @@
+<center>
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<a href="/leads"> <b>View Leads</b></a>
+<p>Add Lead</p>
+
+  <form action="/leads/add" method="post">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name">
+
+    <label for="phone">Phone</label>
+    <input type='tel' name="phone" id="phone">
+
+
+    <label for="company">Company</label>
+    <input type="text" name="company" id="company">
+
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+
+    <label for="li">LinkedIn</label>
+    <input type="url" name="li" id="li">
+
+    <button type="submit" value="Add Lead">Add Lead</button>
+
+  </form>
+</center>
+
