@@ -9,7 +9,7 @@ exports.addLead = async function(req, res){
   var file;
   try{
     file = await fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json')
-    data.index = file.length
+    data.id = file.length
     file.push(data)
   } catch {
     data.id = 0
@@ -18,6 +18,13 @@ exports.addLead = async function(req, res){
   }
   fse.writeJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json', file)
   
-
+  
   return res.render('added', {text:"Hello "+ JSON.stringify(req.body)})
+}
+
+exports.deleteLead = async function(req, res){
+  var file = await fse.readJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json')
+  file.splice(req.params.id, 1)
+  fse.writeJSONSync('/Users/ahmedmgh/WORK/DPLYR/Tech/utils/crm/data.json', file)
+  res.render('all', { title: 'DPLYR CRM', data: file })
 }

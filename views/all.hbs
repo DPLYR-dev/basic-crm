@@ -1,6 +1,7 @@
 <center>
 
   <h1>{{title}}</h1>
+  <a href="/"> <b>View Leads</b></a>
   <p>View Leads</p>
 
   <div>
@@ -10,8 +11,9 @@
         {{#eachProperty this}}
         <td>{{value}}</td>
         {{/eachProperty}}
+        <td> <a href="/leads/delete/{{this.id}}">Delete</a></td>
       </tr>
       {{/each}}
     </table>
-  </div>
+  </div>t
 </center>
