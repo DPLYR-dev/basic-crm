@@ -12,11 +12,10 @@ var app = express();
 var hbs = require('hbs');
 
 
-hbs.registerHelper('eachProperty', function(context, options) {
+hbs.registerHelper('eachProperty', function (context, options) {
   var ret = "";
-  for(var prop in context)
-  {
-      ret = ret + options.fn({property:prop,value:context[prop]});
+  for (var prop in context) {
+    ret = ret + options.fn({ property: prop, value: context[prop] });
   }
   return ret;
 });
