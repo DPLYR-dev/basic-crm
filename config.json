@@ -7,6 +7,9 @@
     {
       "name": "Demo",
       "text": "${lead.name} \n ${lead.company} \n ${lead.phone} \n ${lead.email} \n ${company.name} \n ${company.url} \n ${company.senderName} \n ${company.senderEmail} \n ${company.senderPhone} \n ${company.calendly}"
+    },
+    {
+      "name":"test","text":"Hey ${lead.name}"
     }
   ],
   "companyName":"DPLYR",
