@@ -53,3 +53,19 @@ exports.updateLeadDate = async function (req, res) {
   fse.writeJSONSync(path.join(__dirname, '..', 'data.json'), file);
   res.redirect('/leads')
 }
+
+
+exports.renderSettings = function (req, res ){
+  res.render('settings', { title: config.appName, data: config })
+}
+
+exports.settings = async function (req, res) {
+  console.log(req.body);
+  var data = req.body
+  if (typeof data.texts == 'string') {
+    data.texts = [data.texts]
+  }
+  await fse.writeJSONSync(path.join(__dirname, '..', 'config.json'), data);
+  config = data;
+  res.redirect('/');
+}

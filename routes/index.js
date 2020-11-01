@@ -21,4 +21,7 @@ router.get('/leads/updateDate/:id', LCtrl.updateLeadDate);
 
 router.get("/leads/:id", LCtrl.geSingleLead)
 
+router.get('/settings', LCtrl.renderSettings)
+router.post('/changeSettings', LCtrl.settings)
+
 module.exports = router;

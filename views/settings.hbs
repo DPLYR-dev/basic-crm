@@ -1,0 +1,129 @@
+<center>
+  <h1>{{title}}</h1>
+  <form action="changeSettings" method="post">
+    <h2>Settings</h2>
+    <label for="appName">App Name</label>
+    <input type="text" name="appName" id="appName" value="{{data.appName}}">
+    <label for="companyName">Company Name</label>
+    <input type="text" name="companyName" id="companyName" value="{{data.companyName}}">
+    <label for="companyURL">Company URL</label>
+    <input type="text" name="companyURL" id="companyURL" value="{{data.companyURL}}">
+    <label for="senderName">Sender Name</label>
+    <input type="text" name="senderName" id="senderName" value="{{data.senderName}}">
+    <label for="senderPhone">Sender Phone</label>
+    <input type="text" name="senderPhone" id="senderPhone" value="{{data.senderPhone}}">
+    <label for="senderEmail">Sender Email</label>
+    <input type="text" name="senderEmail" id="senderEmail" value="{{data.senderEmail}}">
+    <label for="calendlyLink">Calendly Link</label>
+    <input type="text" name="calendlyLink" id="calendlyLink" value="{{data.calendlyLink}}">
+    <label for="incomeCategories">Texts</label>
+    <div class="butgroup">
+      <a onclick='addText("lead.name")' data-add="lead.name">Add Lead Name</a>
+      --
+      <a onclick='addText("lead.phone")' data-add="lead.phone">Add Lead Phone</a>
+      --
+      <a onclick='addText("lead.company")' data-add="lead.company">Add Lead Company</a>
+      --
+      <a onclick='addText("lead.email")' data-add="lead.email">Add Lead Email</a>
+      --
+      <a onclick='addText("company.name")'=data-add="company.name">Add Company Name</a>
+      --
+      <a onclick='addText("company.url")' data-add="company.url">Add Company URL</a>
+      --
+      <a onclick='addText("company.senderName")' data-add="company.senderName">Add Sender Name</a>
+      --
+      <a onclick='addText("company.senderPhone")' data-add="company.senderPhone">Add Sender Phone</a>
+      --
+      <a onclick='addText("company.senderEmail")' data-add="company.senderEmail">Add Sender Email</a>
+      --
+      <a onclick='addText("company.calendly")' data-add="company.calendly">Add Calendly Link</a>
+      --
+
+    </div>
+    <br>
+    <div id="inform">
+
+      {{#each data.texts}}
+      <textarea type="text" name="texts" id="texts" cols="90" rows="10">{{this}}</textarea>
+      {{!-- {{this}} --}}
+      {{/each}}
+    </div>
+    <a onclick='AddFormField("inform", "", "texts", "", "")'>Add Text</a>
+    ---
+    <a onclick='RemoveFormField("inform", "", "texts", "", "")'>Remove Text</a>
+    <br>
+    <br>
+
+    <button type="submit"> <b>Save Settings</b> </button>
+  </form>
+</center>
+
+<script type="text/javascript">
+
+  var lastFocus;
+  $('.texts').on('focus', (ev)=>{
+    if (!ev.target.value){
+      ev.target.value = "   "
+    }
+    lastFocus = ev.target
+    
+  })
+  function addText(e) {
+    if (lastFocus) {
+      setTimeout(function () { lastFocus.focus() }, 10);
+    }
+    lastFocus.value += "${"+e+"}"
+  }
+  $("textarea").blur(function () {
+    lastFocus =  this;
+  });
+  var DefaultName = "";
+  var DefaultNameIncrementNumber = 0;
+
+  // No further customizations required.
+  function AddFormField(id, type, name, value, tag) {
+    if (!document.getElementById && document.createElement) { return; }
+    var inhere = document.getElementById(id);
+    var formfield = document.createElement("textarea");
+    if (name.length < 1) {
+      DefaultNameIncrementNumber++;
+      name = String(DefaultName);
+    }
+    formfield.name = name;
+    formfield.cols = "90"
+    formfield.rows = "10"
+    formfield.type = type;
+    formfield.value = value;
+    if (tag.length > 0) {
+      var thetag = document.createElement(tag);
+      thetag.appendChild(formfield);
+      inhere.appendChild(thetag);
+    lastFocus = formfield
+    }
+    else { inhere.appendChild(formfield); 
+    lastFocus = formfield
+    }
+  } // function AddFormField()
+  function RemoveFormField(id, type, name, value, tag) {
+    if (!document.getElementById && document.createElement) { return; }
+    var inhere = document.getElementById(id);
+    var formfield = document.createElement("input");
+    if (name.length < 1) {
+      DefaultNameIncrementNumber++;
+      name = String(DefaultName);
+    }
+    formfield.name = name;
+    formfield.type = type;
+    formfield.value = value;
+    if (tag.length > 0) {
+      // var thetag = document.createElement(tag);
+      //thetag.appendChild(formfield);
+      //inhere.appendChild(thetag);
+    }
+    else {
+      // inhere.appendChild(formfield); 
+      inhere.removeChild(inhere.lastElementChild)
+
+    }
+  } // function AddFormField()
+</script>

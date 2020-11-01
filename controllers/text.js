@@ -8,7 +8,7 @@ var renderTexts = function (lead) {
     return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);
   }
   file.texts.forEach(el => {
-    edTexts.push(el.text
+    edTexts.push(el
       .replaceAll("${lead.name}", lead.name)
       .replaceAll("${lead.company}", lead.company)
       .replaceAll("${lead.phone}", lead.phone)
